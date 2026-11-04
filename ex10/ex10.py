@@ -1,44 +1,30 @@
 
-# Crop Recommendation System
-# Without using external libraries
+from sklearn.datasets import load digits from sklearn.model selection import train test split from sklearn.neighbors import KNeighborsClassifier from sklearn.metrics import accuracy score import matplotlib.pyplot as plt
 
-print("===================================")
-print("     CROP RECOMMENDATION SYSTEM")
-print("===================================")
+# Load dataset
 
-try:
-    # Get input from the user
-    N = float(input("Enter Nitrogen: "))
-    P = float(input("Enter Phosphorus: "))
-    K = float(input("Enter Potassium: "))
-    T = float(input("Enter Temperature: "))
-    H = float(input("Enter Humidity: "))
-    ph = float(input("Enter soil pH: "))
-    R = float(input("Enter Rainfall: "))
+digits = load_digits ()
 
-    # Crop recommendation logic
-    if N >= 80 and P >= 40 and K >= 40 and R >= 150:
-        crop = "Rice"
+X = digits.data y = digits.target
 
-    elif N >= 50 and P >= 45 and T >= 24 and R >= 90:
-        crop = "Wheat"
+# Split dataset
 
-    elif N <= 35 and P <= 35 and K <= 35 and R <= 90:
-        crop = "Groundnut"
+X train, X test, y train, y test = train test split( X, y, test size=0.2, random state=42
 
-    elif T >= 25 and H >= 55 and ph >= 6.0:
-        crop = "Millet"
+# Train model
 
-    elif N >= 35 and K >= 35 and R >= 100:
-        crop = "Maize"
+model = KNeighborsClassifier (n_neighbors=3) model.fit(X train, y train)
 
-    else:
-        crop = "Millet"
+# Predict digits y_pred = model.predict (X_test)
 
-    # Display the result
-    print("\n-----------------------------------")
-    print("Recommended Crop:", crop)
-    print("-----------------------------------")
+# Calculate accuracy
 
-except ValueError:
-    print("Invalid input! Please enter numeric values.")
+accuracy = accuracy_score (y_test, y_pred)
+
+# Display output
+
+print ("Handwritten Digit Recognition") print ("Predicted Digit:", y_pred[0]) print ("Actual Digit:", y_test[0]) print ("Accuracy:", accuracy * 100, "%")
+
+# Display image plt.imshow(digits.images[0], cmap='gray') plt.title ("Handwritten Digit") plt.axis ('off')
+
+plt.show()
