@@ -1,14 +1,5 @@
-===================================
-     CROP RECOMMENDATION SYSTEM
-===================================
-Enter Nitrogen: 90
-Enter Phosphorus: 42
-Enter Potassium: 43
-Enter Temperature: 20
-Enter Humidity: 80
-Enter soil pH: 6.5
-Enter Rainfall: 200
+Predicted Digit:8
 
------------------------------------
-Recommended Crop: Rice
------------------------------------
+Actual Digit: 8
+
+Accuracy: 98.33 %
